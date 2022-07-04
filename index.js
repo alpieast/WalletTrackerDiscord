@@ -66,7 +66,7 @@ const listWallets = (message, args) => {
   if (wallets.length === 0) {
     message.reply("You have no wallets.");
   }
-  const walletList = wallets.map((wallet) => wallet.id);
+  const walletList = wallets.map((wallet) => wallet.id, wallet.name);
   message.reply(walletList.join(", "));
 };
 const start = (message) => {
@@ -124,7 +124,7 @@ client.on("message", (message) => {
 client.login(token);
 
 const sendMessageToChannel = (message) => {
-  client.channels.fetch("992447690724094003").then((channel) => {
+  client.channels.fetch(channelId).then((channel) => {
     channel.send(message);
   });
 };
