@@ -189,7 +189,7 @@ const checkIfTransactionIsBuyOrSell = (transaction, walletId) => {
 var config = (walletId) => {
   return {
     method: "get",
-    url: `https://api-mainnet.magiceden.dev/v2/wallets/${walletId}/activities?offset=0&limit=100`,
+    url: `https://api-mainnet.magiceden.dev/v2/wallets/${walletId}/activities?offset=0&limit=10`,
     headers: {},
   };
 };
