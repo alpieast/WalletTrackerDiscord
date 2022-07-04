@@ -66,7 +66,9 @@ const listWallets = (message, args) => {
   if (wallets.length === 0) {
     message.reply("You have no wallets.");
   }
-  const walletList = wallets.map((wallet) => wallet.id, wallet.name);
+  const walletList = wallets.map((wallet) => {
+    wallet.id;
+  });
   message.reply(walletList.join(", "));
 };
 const start = (message) => {
@@ -92,7 +94,11 @@ const messageCommands = (message) => {
       "\n" +
       "Use `!-deletewallet <wallet id>` to delete a wallet." +
       "\n" +
-      "Use `!-listwallets` to list all your wallets."
+      "Use `!-listwallets` to list all your wallets." +
+      "\n" +
+      "Use `!-stop` to stop the bot." +
+      "\n" +
+      "Use `!-clear <number>` to see this message."
   );
 };
 
@@ -183,7 +189,7 @@ const checkIfTransactionIsBuyOrSell = (transaction, walletId) => {
 var config = (walletId) => {
   return {
     method: "get",
-    url: `https://api-mainnet.magiceden.dev/v2/wallets/${walletId}/activities?offset=0&limit=10`,
+    url: `https://api-mainnet.magiceden.dev/v2/wallets/${walletId}/activities?offset=0&limit=100`,
     headers: {},
   };
 };
