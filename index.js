@@ -64,12 +64,12 @@ const deleteWallet = (message, args) => {
 
 const listWallets = (message, args) => {
   if (wallets.length === 0) {
-    message.reply("You have no wallets.");
+    return message.reply("You have no wallets.");
   }
   const walletList = wallets.map((wallet) => {
     wallet.id;
   });
-  message.reply(walletList.join(", "));
+  message.reply(walletList.join(", ") + "    ");
 };
 const start = (message) => {
   if (wallets.length === 0) {
