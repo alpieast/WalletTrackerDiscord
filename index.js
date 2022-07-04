@@ -69,7 +69,7 @@ const listWallets = (message, args) => {
   const walletList = wallets.map((wallet) => {
     wallet.id;
   });
-  message.reply(walletList.join(", ") + "    ");
+  return message.reply(walletList.join(", ") + "    ");
 };
 const start = (message) => {
   if (wallets.length === 0) {
